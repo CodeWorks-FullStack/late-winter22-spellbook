@@ -15,6 +15,7 @@ export class Spell{
     this.prepared = data.prepared || false
   }
 
+  // NOTE template for active spell
   get Template(){
     return `
     <div class="bg-light shadow p-4">
@@ -31,6 +32,8 @@ export class Spell{
     </div>`
   }
 
+
+  // NOTE template for my spell list
   get ListTemplate(){
     return `
     <div class="rounded  p-2">
@@ -41,6 +44,7 @@ export class Spell{
     </div>`
   }
 
+  // NOTE gets a button dependant on if it's in our spell list (has an id) or not
   get Button(){
     let button = ''
     if(this.id){

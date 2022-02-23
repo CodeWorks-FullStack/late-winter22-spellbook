@@ -10,6 +10,7 @@ class MySpellsService{
     console.log('[getMySpells]',res.data);
     ProxyState.mySpells = res.data.map(s => new Spell(s))
   }
+  // NOTE save to bcw sandbox
   async saveSpell() {
     let spell = ProxyState.activeSpell
     const res = await sandboxApi.post('', spell)
@@ -24,13 +25,15 @@ class MySpellsService{
     ProxyState.activeSpell = {}
     ProxyState.mySpells = ProxyState.mySpells.filter(s => s.id != id)
   }
-  
+  // NOTE not async as it pulls from the list of our spells which have all the data needed
   setActiveSpell(id) {
     let spell = ProxyState.mySpells.find(s => s.id == id)
     ProxyState.activeSpell = spell
   }
+  // NOTE id here is used to find the in our current array, flip it's bool, then update the database
   async prepareSpell(id) {
     let spellToPrepare = ProxyState.mySpells.find(s => s.id == id)
+    // NOTE we pass the whole spellToPrepare object cause the server needs to know what properties are updated, not just the updated value.
     console.log('preparing spell', spellToPrepare);
     // NOTE just flips bool from true to false, or false to true
     spellToPrepare.prepared = !spellToPrepare.prepared

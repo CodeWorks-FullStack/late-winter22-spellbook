@@ -11,6 +11,7 @@ async function _getMySpells(){
   }
 }
 
+// NOTE draw template builds the html, spellCount counts how many spells you have prepared
 function _drawMySpells(){
   let spellCount = 0
   let totalSpellCount = ProxyState.spellSlots
@@ -21,6 +22,7 @@ function _drawMySpells(){
       spellCount++
     }
   })
+  // NOTE inject the template in one spot, the count of prepared spells in another spot
   document.getElementById('my-spells').innerHTML = template
   document.getElementById('slots').innerHTML = `<div class="${spellCount > totalSpellCount ? 'text-danger': ''}">${spellCount}/${totalSpellCount}</div>`
 }
@@ -50,6 +52,7 @@ export class MySpellsController{
     }
   }
 
+  // NOTE not async as it's pulling from the lits of my spells which are rich data objects
   setActiveSpell(id){
     mySpellsService.setActiveSpell(id)
   }
