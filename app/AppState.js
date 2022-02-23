@@ -2,8 +2,19 @@ import { EventEmitter } from "./Utils/EventEmitter.js"
 import { isValidProp } from "./Utils/isValidProp.js"
 
 class AppState extends EventEmitter {
+
+  spellSlots = 7
+
+  dndApiSpells = []
+
+  /** @type {import('./Models/Spell').Spell[]} */
+  mySpells = []
+  
+  activeSpell = {}
+
+
   /** @type {import('./Models/Value').Value[]} */
-  values = []
+
 }
 
 export const ProxyState = new Proxy(new AppState(), {

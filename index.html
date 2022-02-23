@@ -26,8 +26,37 @@
   <main>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-12">
-          <div id="app"></div>
+        <div class="col-3">
+          <ul id="api-spell-list">
+            <!-- <li></li> -->
+          </ul>
+        </div>
+        <div id="active-spell" class="col-6 mt-4">
+          <!-- STUB Active Spell Template -->
+          <!-- <div class="bg-light shadow p-4">
+            <div class="text-center">
+              <h2>Spell Name</h2>
+              <h4> Duration | Level 1 | Range: 120ft</h4>
+              <p>this spell burns goblins</p>
+              <div class="d-flex justify-content-between align-items-baseline">
+                <button>Prepare</button>
+                <button>Save to spell book</button>
+              </div>
+            </div>
+          </div> -->
+          <!--  -->
+        </div>
+        <div class="col-3 bg-white shadow rounded">
+          <h2>My Spells <span id="slots"></span></h2>
+          <ul id="my-spells" class="p-0">
+            <!-- STUB List template -->
+            <!-- <div class="div">
+              <p>Spell Name</p>
+              <input type="checkbox">
+              <button class="btn btn-warning"> prepare spell</button>
+            </div> -->
+            <!--  -->
+          </ul>
         </div>
       </div>
     </div>
@@ -38,6 +67,8 @@
     </div>
   </footer>
 
+  <!-- NOTE don't forget axios -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.23.0/axios.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
     crossorigin="anonymous"></script>
